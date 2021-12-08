@@ -31,8 +31,12 @@ RUN apt-get update --yes && \
     texlive-xetex \
     texlive-fonts-recommended \
     texlive-plain-generic && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+    apt-get clean && rm -rf /var/lib/apt/lists/*  
 
+RUN conda install --quiet --yes \
+    'pandas=1.3.* ' 
+
+    
 # Create alternative for nano -> nano-tiny
 RUN update-alternatives --install /usr/bin/nano nano /bin/nano-tiny 10
 
